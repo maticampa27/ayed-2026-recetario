@@ -6,11 +6,12 @@ Repositorio del grupo. Partir de este esqueleto. No borrar la estructura de `src
 
 | Nombre | Mail | GitHub |
 | --- | --- | --- |
-|  |  |  |
-|  |  |  |
-|  |  |  |
+|Britán Camila  |Britancamila@gmail.com  |  BritanCamila|
+|Nicolás Uliambre  |Uliambrenicolas@gmail.com  |  NicoUliambre|
+|Matías Campanella  |mati.campanella@gmail.com  |  maticampa27|
 
-**Tema elegido:** Pokédex / Recetario / Biblioteca musical (dejar uno)
+**Tema elegido:**  Recetario
+
 
 ## Cómo ejecutar
 
