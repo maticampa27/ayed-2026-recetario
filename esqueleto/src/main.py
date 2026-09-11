@@ -1,10 +1,24 @@
 from src.config import TEMA
+from src.persistencia.recetas_csv import cargar_recetas
 
 TEMAS = {
     "pokedex": "Pokédex",
     "recetario": "Recetario",
     "musica": "Biblioteca musical",
 }
+
+def mostrar_recetas(recetas):
+    print("=======================================")
+    print("              RECETARIO")
+    print("=======================================")
+
+    for receta in recetas:
+        print(f"ID: {receta['id']}")
+        print(f"Nombre: {receta['nombre']}")
+        print(f"Tiempo: {receta['tiempo_min']} minutos")
+        print(f"Dificultad: {receta['dificultad']}")
+        print(f"Categoría: {receta['categoria']}")
+        print("----------------------------------------")
 
 
 def pendiente():
@@ -38,7 +52,10 @@ def main():
         opcion = input("> ").strip()
         if opcion == "0":
             print("Chau.")
-        elif opcion in {"1", "2", "3", "4", "5", "6", "7", "8", "9"}:
+        if opcion == "1":
+            recetas = cargar_recetas()
+            mostrar_recetas(recetas)
+        elif opcion in {"2", "3", "4", "5", "6", "7", "8", "9"}:
             pendiente()
         else:
             print("Opción inválida.")
