@@ -24,10 +24,33 @@ El catálogo contiene todas las recetas disponibles.
 
 ## 3. Recursión (E2)
 
-- Función:
-- Caso base:
-- Caso recursivo:
-- Traza de un ejemplo real del dataset:
+## 3. Recursión (E2)
+
+La recursión se utiliza para recorrer las subrecetas de una receta.
+
+```python
+subrecetas = self.subrecetas.get(receta_id, [])
+
+if len(subrecetas) == 0:
+    return
+
+for subreceta_id in subrecetas:
+    self.desglosar_receta(subreceta_id)
+```
+
+**Primer caso:** la receta no tiene subrecetas, por lo que la función termina.
+
+**Segundo caso:** la receta tiene subrecetas y la función se vuelve a llamar para cada una.
+
+Ejemplo con la receta 10:
+
+```text
+desglosar_receta(10)
+├── desglosar_receta(3) → No tiene
+└── desglosar_receta(5) → No tiene
+```
+
+La relación entre recetas y subrecetas se obtiene de `data/subrecetas.csv`.
 
 ## 4. TADs (E3)
 
