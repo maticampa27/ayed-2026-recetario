@@ -1,17 +1,29 @@
+from src.excepciones import ColaVaciaError
+from src.tads.lista_enlazada import ListaEnlazada
+
+
 class Cola:
-    """TAD cola implementado sobre ListaEnlazada."""
+    """Cola implementada sobre ListaEnlazada."""
 
     def __init__(self):
-        raise NotImplementedError
+        self.__datos = ListaEnlazada()
 
     def encolar(self, dato):
-        raise NotImplementedError
+        self.__datos.insertar_al_final(dato)
 
     def desencolar(self):
-        raise NotImplementedError
+        if self.esta_vacia():
+            raise ColaVaciaError("La cola está vacía.")
+
+        dato = next(iter(self.__datos))
+        self.__datos.eliminar(dato)
+        return dato
 
     def ver_frente(self):
-        raise NotImplementedError
+        if self.esta_vacia():
+            raise ColaVaciaError("La cola está vacía.")
+
+        return next(iter(self.__datos))
 
     def esta_vacia(self):
-        raise NotImplementedError
+        return self.__datos.esta_vacia()

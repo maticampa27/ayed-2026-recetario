@@ -1,17 +1,29 @@
+from src.excepciones import PilaVaciaError
+from src.tads.lista_enlazada import ListaEnlazada
+
+
 class Pila:
-    """TAD pila implementado sobre ListaEnlazada."""
+    """Pila implementada sobre ListaEnlazada."""
 
     def __init__(self):
-        raise NotImplementedError
+        self.__datos = ListaEnlazada()
 
     def apilar(self, dato):
-        raise NotImplementedError
+        self.__datos.insertar_al_inicio(dato)
 
     def desapilar(self):
-        raise NotImplementedError
+        if self.esta_vacia():
+            raise PilaVaciaError("La pila está vacía.")
+
+        dato = next(iter(self.__datos))
+        self.__datos.eliminar(dato)
+        return dato
 
     def ver_tope(self):
-        raise NotImplementedError
+        if self.esta_vacia():
+            raise PilaVaciaError("La pila está vacía.")
+
+        return next(iter(self.__datos))
 
     def esta_vacia(self):
-        raise NotImplementedError
+        return self.__datos.esta_vacia()

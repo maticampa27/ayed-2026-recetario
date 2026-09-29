@@ -56,11 +56,19 @@ La relación entre recetas y subrecetas se obtiene de `data/subrecetas.csv`.
 
 | TAD | Operaciones | Invariante |
 | --- | --- | --- |
-| ListaEnlazada |  |  |
-| Pila |  |  |
-| Cola |  |  |
+| ListaEnlazada | esta_vacia, tamanio, insertar_al_inicio, insertar_al_final, insertar_ordenado, eliminar, buscar, __iter__ |Los nodos están enlazados desde el primero hasta None y el tamaño coincide con la cantidad de nodos.  |
+| Pila | apilar, desapilar, ver_tope, esta_vacia |Sigue el principio LIFO: el último elemento agregado es el primero en salir.  |
+| Cola | encolar, desencolar, ver_frente, esta_vacia |Sigue el principio FIFO: el primer elemento agregado es el primero en salir.  |
 
 Dónde se usa cada uno en el dominio.
+
+ListaEnlazada: se utiliza para almacenar y recorrer los elementos de la colección principal.
+
+
+Pila: se utiliza para guardar el historial de recetas cocinadas. Al ser LIFO, la última receta cocinada es la primera que se puede recuperar.
+
+
+Cola: se utiliza para guardar las recetas pendientes de preparación. Al ser FIFO, la primera receta agregada es la primera que se prepara.
 
 ## 5. Complejidad (E4)
 
