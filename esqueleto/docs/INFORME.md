@@ -70,17 +70,15 @@ Pila: se utiliza para guardar el historial de recetas cocinadas. Al ser LIFO, la
 
 Cola: se utiliza para guardar las recetas pendientes de preparación. Al ser FIFO, la primera receta agregada es la primera que se prepara.
 
-## 5. Complejidad (E4)
+## ## 5. Complejidad (E4)
 
 | Operación | Tiempo | Espacio | Por qué |
 | --- | --- | --- | --- |
-|  |  |  |  |
+| Búsqueda lineal | O(n) | O(1) | Puede recorrer todos los elementos. |
+| Búsqueda binaria | O(log n) | O(1) | En cada paso descarta aproximadamente la mitad. |
+| Ordenamiento por selección | O(n²) | O(n) | Compara elementos mediante dos ciclos. |
+| Ordenamiento por inserción | O(n²) | O(n) | En el peor caso desplaza muchos elementos. |
 
-Mediciones (`time.perf_counter`):
-
-| Operación | n | segundos |
-| --- | --- | --- |
-|  |  |  |
 
 ## 6. Persistencia (E5)
 

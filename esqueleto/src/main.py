@@ -1,5 +1,7 @@
 from src.config import TEMA
 from src.persistencia.recetas_csv import cargar_recetas
+from src.algoritmos.busqueda import busqueda_lineal, busqueda_binaria
+from src.algoritmos.ordenamiento import ordenar_seleccion, ordenar_insercion
 
 TEMAS = {
     "pokedex": "Pokédex",
@@ -40,6 +42,51 @@ def mostrar_menu():
     print("9. Guardar / cargar archivos")
     print("0. Salir")
 
+def buscar_lineal(recetas):
+    nombre = input("Ingrese el nombre de la receta: ")
+
+    resultado = busqueda_lineal(
+        recetas,
+        nombre,
+        lambda receta: receta["nombre"]
+    )
+
+    if resultado is None:
+        print("Receta no encontrada.")
+    else:
+        print(f"Encontrada: {resultado['nombre']}")
+
+def buscar_binaria(recetas):
+    recetas_ordenadas = ordenar_insercion(
+        recetas,
+        lambda receta: receta["nombre"]
+    )
+
+    nombre = input("Ingrese el nombre de la receta: ")
+
+    resultado = busqueda_binaria(
+        recetas_ordenadas,
+        nombre,
+        lambda receta: receta["nombre"]
+    )
+
+    if resultado is None:
+        print("Receta no encontrada.")
+    else:
+        print(f"Encontrada: {resultado['nombre']}")
+
+def ordenar_recetas_seleccion(recetas):
+    return ordenar_seleccion(
+        recetas,
+        lambda receta: receta["nombre"]
+    )
+
+
+def ordenar_recetas_insercion(recetas):
+    return ordenar_insercion(
+        recetas,
+        lambda receta: receta["nombre"]
+    )
 
 def main():
     if TEMA not in TEMAS:

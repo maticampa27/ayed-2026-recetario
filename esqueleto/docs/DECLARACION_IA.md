@@ -9,7 +9,7 @@ Fecha de esta versión del archivo:
 | E1 |11/9  |ChatGPT  |Orientación sobre la lectura de archivos CSV,Ayuda para comprender Git/GitHub. explicacion catálogo, colección principal, pila y cola.  |with open("data/recetas.csv", "r", encoding="utf-8") as archivo:  |El resto.  |   |
 | E2 |20/9  |ChatGPT  |Guia  y formateo de Markdown para Informe y protocolo de pruebas  |  |  | Matías Campanella |
 | E3 |29/9  | ChatGPT  |Implementación y explicación de funcion "Eliminar"  |def eliminar  |Revisado, probado y adaptado por el grupo  | Matías Campanella |
-| E4 |  |  |  |  |  |  |
+| E4 |22/10  |ChatGPT  |Ayuda en el informe sobre Complejidad  |Tiempo y espacio  |El resto  | Matías Campanella |
 | E5 |  |  |  |  |  |  |
 | E6 |  |  |  |  |  |  |
 
