@@ -20,6 +20,11 @@ Mínimos: 8 casos escritos en E2; ejecutados en E3; 15 de regresión en E6 (pila
 | P10 | E4      | Búsqueda lineal de un nombre inexistente | Pizza inexistente   | Informa que no existe                        | pasa      |       |
 | P11 | E4      | Búsqueda binaria                         | Asado               | Encuentra la receta en catálogo ordenado     | pasa      |       |
 | P12 | E4      | Ordenar por nombre                       | Catálogo de recetas | Las recetas quedan ordenadas alfabéticamente | pasa      |       |
-| P13 | E5 | Guardar CSV, salir, volver a entrar |  | los datos siguen |  |  |
-| P14 | E5 | Guardar binario y modificar un registro por id |  | al recargar, ese campo cambió |  |  |
-| P15 | E5 | Abrir un binario truncado o con magia mala | archivo basura | excepción de archivo inválido |  |  |
+| P13 | E5 | Guardar catálogo en texto, salir y volver a cargarlo | Catálogo de recetas | Los datos siguen disponibles después de cerrar y abrir el programa | pasa |  |
+| P14 | E5 | Guardar binario y modificar un registro por posición | Una receta existente | Al recargar, el campo modificado conserva el nuevo valor | pasa |  |
+| P15 | E5 | Abrir un binario truncado o con magia incorrecta | Archivo binario inválido | Se produce `ArchivoInvalidoError` | pasa |  |
+
+
+
+
+

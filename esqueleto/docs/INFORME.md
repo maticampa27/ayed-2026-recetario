@@ -80,11 +80,69 @@ Cola: se utiliza para guardar las recetas pendientes de preparación. Al ser FIF
 | Ordenamiento por inserción | O(n²) | O(n) | En el peor caso desplaza muchos elementos. |
 
 
-## 6. Persistencia (E5)
+## ## 6. Persistencia (E5)
 
-- Layout del registro binario (campos, `struct`, anchos):
-- Header:
-- Cómo se actualiza un registro por posición:
+### A. Archivo de texto
+
+El catálogo se puede guardar en un archivo de texto `recetas.txt`. Cada línea representa una receta y los campos se separan mediante `|`.
+
+por ejemplo:
+
+```text
+id|nombre|tiempo_min|dificultad|categoria
+9|Asado|180|media|principal
+```
+
+El programa puede guardar y volver a cargar el catálogo, por lo que los datos sobreviven al cierre del programa.
+
+### B. Archivo binario
+
+Se utiliza el módulo `struct` y registros de longitud fija.
+
+**Header:**
+
+| Campo | Tipo `struct` | Tamaño |
+|---|---|---:|
+| Magia | `4s` | 4 bytes |
+| Tema | `1s` | 1 byte |
+| Cantidad | `I` | 4 bytes |
+
+La magia utilizada es `AYED` y el tema del recetario se representa mediante `R`.
+
+**Registro de una receta:**
+
+| Campo | Tipo `struct` | Tamaño |
+|---|---|---:|
+| ID | `I` | 4 bytes |
+| Nombre | `50s` | 50 bytes |
+| Tiempo | `I` | 4 bytes |
+| Dificultad | `10s` | 10 bytes |
+| Categoría | `20s` | 20 bytes |
+
+Formato utilizado:
+
+```python
+"<I50sI10s20s"
+```
+
+Cada registro tiene longitud fija, lo que permite calcular directamente la posición de un registro dentro del archivo.
+
+### C. Acceso directo
+
+Para modificar un registro se usa `seek()`.
+
+La posición se calcula como:
+
+```text
+posición = tamaño_header + posición_registro × tamaño_registro
+```
+
+La posición del registro es 0-based. De esta forma se modifica directamente el registro solicitado sin reescribir todo el archivo.
+
+### D. Archivo inválido
+
+Y se utiliza `ArchivoInvalidoError` cuando el archivo binario tiene un header incompleto, una magia incorrecta, un tema incorrecto o un registro truncado.
+
 
 ## 7. Reparto de trabajo (E6)
 
