@@ -148,4 +148,12 @@ Y se utiliza `ArchivoInvalidoError` cuando el archivo binario tiene un header in
 
 | Integrante | Qué hizo | Qué puede defender |
 | --- | --- | --- |
-|  |  |  |
+| Britán Camila | Implementación y pruebas del catálogo y operaciones principales | Catálogo, modelo y funcionamiento general |
+| Nicolás Uliambre | TADs y estructuras de datos | Lista enlazada, pila y cola |
+| Matías Campanella | Persistencia, búsquedas, ordenamientos, documentación y pruebas | struct, seek, archivos, búsquedas, ordenamientos e informe |
+
+
+
+
+
+

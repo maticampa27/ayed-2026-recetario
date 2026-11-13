@@ -11,6 +11,6 @@ Fecha de esta versión del archivo:
 | E3 |29/9  | ChatGPT  |Implementación y explicación de funcion "Eliminar"  |def eliminar  |Revisado, probado y adaptado por el grupo  | Matías Campanella |
 | E4 |22/10  |ChatGPT  |Ayuda en el informe sobre Complejidad  |Tiempo y espacio  |El resto  | Matías Campanella |
 | E5 | 11/11 | ChatGPT |Código de persistencia generado/adaptado  |ruta, "r", encoding="utf-8", newline=""                           FORMATO_HEADER = "<4s1sI"                     FORMATO_REGISTRO = "<I50sI10s20s"  |  |Matias Campanella  |
-| E6 |  |  |  |  |  |  |
+| E6 |12/11  |  |  |  |El grupo revisó, probó y adaptó todo para la ultima entrega  |  |
 
 Compromiso: cualquiera del grupo puede explicar cualquier archivo del tag.

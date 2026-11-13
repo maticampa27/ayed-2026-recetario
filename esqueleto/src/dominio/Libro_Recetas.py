@@ -1,14 +1,24 @@
-def desglosar_receta(self, receta_id):
-    receta = self.recetas[receta_id]
+class LibroRecetas:
+    def __init__(self, recetas, subrecetas):
+        self.recetas = recetas
+        self.subrecetas = subrecetas
 
-    print(receta.nombre)
+    def desglosar_receta(self, receta_id):
+        receta = self.recetas.get(str(receta_id))
 
-    subrecetas = self.subrecetas.get(receta_id, [])
+        if receta is None:
+            return
 
-    # si NO tiene 
-    if len(subrecetas) == 0:
-        return
+        print(receta["nombre"])
 
-    # si tiene 
-    for subreceta_id in subrecetas:
-        self.desglosar_receta(subreceta_id)
+        subrecetas = self.subrecetas.get(
+            str(receta_id),
+            []
+        )
+        
+        # si NO tiene 
+        if len(subrecetas) == 0:
+            return
+        # si tiene 
+        for subreceta_id in subrecetas:
+            self.desglosar_receta(subreceta_id)

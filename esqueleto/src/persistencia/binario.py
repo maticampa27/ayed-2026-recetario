@@ -113,6 +113,12 @@ def cargar_binario(ruta):
 
                 receta = desempaquetar_receta(datos)
                 recetas.append(receta)
+            resto = archivo.read()
+
+            if resto:
+                raise ArchivoInvalidoError(
+                    "El archivo contiene bytes adicionales."
+                )
 
             return recetas
 

@@ -1,49 +1,70 @@
 import csv
 
+from src.excepciones import ArchivoInvalidoError
+
 
 def cargar_txt(ruta):
     filas = []
 
     try:
-        with open(ruta, "r", encoding="utf-8") as archivo:
-            lineas = archivo.readlines()
+        with open(
+            ruta,
+            "r",
+            encoding="utf-8",
+            newline=""
+        ) as archivo:
 
-            if not lineas:
-                raise ValueError("El archivo está vacío.")
+            lector = csv.DictReader(archivo)
 
-            encabezados = lineas[0].strip().split("|")
+            if lector.fieldnames is None:
+                raise ArchivoInvalidoError(
+                    "El archivo no tiene encabezado."
+                )
 
-            for linea in lineas[1:]:
-                valores = linea.strip().split("|")
+            for fila in lector:
+                if not fila:
+                    continue
 
-                if len(valores) != len(encabezados):
-                    raise ValueError("Una fila tiene una cantidad incorrecta de campos.")
+                filas.append(dict(fila))
 
-                fila = {}
+    except FileNotFoundError as error:
+        raise ArchivoInvalidoError(
+            f"No existe el archivo: {ruta}"
+        ) from error
 
-                for i in range(len(encabezados)):
-                    fila[encabezados[i]] = valores[i]
+    except (
+        OSError,
+        UnicodeError,
+        csv.Error
+    ) as error:
 
-                filas.append(fila)
-
-    except (OSError, ValueError) as error:
-        raise ValueError("El archivo de texto es inválido.") from error
+        raise ArchivoInvalidoError(
+            f"El archivo de texto es inválido: {ruta}"
+        ) from error
 
     return filas
 
 
 def guardar_txt(ruta, filas, encabezados):
     try:
-        with open(ruta, "w", encoding="utf-8") as archivo:
-            archivo.write("|".join(encabezados) + "\n")
+        with open(
+            ruta,
+            "w",
+            encoding="utf-8",
+            newline=""
+        ) as archivo:
+
+            escritor = csv.DictWriter(
+                archivo,
+                fieldnames=encabezados
+            )
+
+            escritor.writeheader()
 
             for fila in filas:
-                valores = []
-
-                for encabezado in encabezados:
-                    valores.append(str(fila[encabezado]))
-
-                archivo.write("|".join(valores) + "\n")
+                escritor.writerow(fila)
 
     except OSError as error:
-        raise ValueError("No se pudo guardar el archivo.") from error
+        raise ArchivoInvalidoError(
+            f"No se pudo guardar el archivo: {ruta}"
+        ) from error

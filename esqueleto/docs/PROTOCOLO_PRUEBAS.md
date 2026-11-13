@@ -24,7 +24,7 @@ Mínimos: 8 casos escritos en E2; ejecutados en E3; 15 de regresión en E6 (pila
 | P14 | E5 | Guardar binario y modificar un registro por posición | Una receta existente | Al recargar, el campo modificado conserva el nuevo valor | pasa |  |
 | P15 | E5 | Abrir un binario truncado o con magia incorrecta | Archivo binario inválido | Se produce `ArchivoInvalidoError` | pasa |  |
 
-
+comprobados nuevamente luego de cambios en E6
 
 
 
